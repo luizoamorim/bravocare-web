@@ -1,16 +1,22 @@
+import { IShiftView } from "../data";
+
 interface ShiftProps {
-    facilityName: string;
-    date: String;
-    startTime: String;
-    endTime: String;
+    shift: IShiftView;
 }
-const Shift = ({ facilityName, date, startTime, endTime }: ShiftProps) => {
+
+const Shift = ({ shift }: ShiftProps) => {
     return (
-        <div className="border-2 rounded-md border-gray-700 flex flex-col justify-center items-center p-4">
-            <p className="text-gray-800 font-bold">{facilityName}</p>
-            <p className="text-gray-800">{date.toString()}</p>
-            <p className="text-gray-800">
-                {startTime.toString()} - {endTime.toString()}
+        <div
+            className={
+                !shift.isSelected
+                    ? `border-2 rounded-md border-gray-700 flex flex-col justify-center items-center p-4 cursor-pointer text-gray-800 hover:bg-blue-500 hover:text-white`
+                    : `border-2 rounded-md border-gray-700 flex flex-col justify-center items-center p-4 cursor-pointer bg-blue-400 text-white  hover:bg-blue-300`
+            }
+        >
+            <p className=" font-bold">{shift.facilities.facility_name}</p>
+            <p>{shift.shift_date.toString()}</p>
+            <p>
+                {shift.start_time.toString()} - {shift.end_time.toString()}
             </p>
         </div>
     );

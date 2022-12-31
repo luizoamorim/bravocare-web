@@ -1,3 +1,4 @@
-import IShiftsWithFacilityName from "./IShiftsWithFacilityName";
+import IShiftView from "./IShiftView";
+import IShiftsOverlapVIew from "./IShiftsOverlapVIew";
 
-export type { IShiftsWithFacilityName };
+export type { IShiftView, IShiftsOverlapVIew };

@@ -1,4 +1,4 @@
-export default interface IShiftsWithFacilityName {
+export default interface IShiftView {
     shift_id: number;
     facility_id: number;
     shift_date: String;
@@ -7,4 +7,5 @@ export default interface IShiftsWithFacilityName {
     facilities: {
         facility_name: string;
     };
+    isSelected: boolean;
 }
