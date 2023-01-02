@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Overlaps, Shift } from "../components";
+import Button from "../components/Button";
 import { IShiftView } from "../data";
 
 interface HomeProps {
@@ -29,6 +30,7 @@ export default function Home({ data }: HomeProps) {
         updateShift(shift);
 
         console.log(selectedShiftId);
+        <div>Tste</div>;
     };
 
     const updateShift = (shiftToUpdate: IShiftView) => {
@@ -64,6 +66,14 @@ export default function Home({ data }: HomeProps) {
                             <Shift shift={shift} />
                         </div>
                     ))}
+            </div>
+            <div className="grid grid-cols-3 gap-20 pt-10">
+                <Button
+                    title="Query 4"
+                    url="http://localhost:3333/remainingSpotsByFacilityByJobType"
+                />
+                <Button title="Query 5" url="http://localhost:3333/shifts" />
+                <Button title="Query 6" url="http://localhost:3333/shifts" />
             </div>
         </div>
     );

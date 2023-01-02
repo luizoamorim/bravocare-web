@@ -23,7 +23,7 @@ const Overlaps = ({ shiftIds }: OverlapsProps) => {
     };
 
     return (
-        <div className="border-2 rounded-md border-gray-700 flex py-4 px-12 justify-between">
+        <div className="border-2 rounded-md text-gray-700 font-bold border-gray-300 flex py-4 px-12 justify-between">
             {preLoad && (
                 <div className="flex flex-col">
                     <h1>Overlap mintutes: {overlap?.minutes}</h1>
