@@ -1,11 +1,18 @@
+import { api } from "../lib/axios";
+
 interface ButtonProps {
     title: string;
-    url: string;
+    route: string;
 }
-const Button = ({ title, url }: ButtonProps) => {
+const Button = ({ title, route }: ButtonProps) => {
     const getData = async () => {
-        const res = await fetch(url);
-        const data = await res.json();
+        const res = await api.get(route);
+        const data = await res.data;
+        console.log(
+            "-----------------------" +
+                route.toLocaleUpperCase() +
+                "-----------------------",
+        );
         console.log(data);
     };
     return (

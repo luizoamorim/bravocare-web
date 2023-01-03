@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { IShiftsOverlapVIew } from "../data";
+import { api } from "../lib/axios";
 
 interface OverlapsProps {
     shiftIds: number[];
@@ -14,10 +15,8 @@ const Overlaps = ({ shiftIds }: OverlapsProps) => {
             toast.error("Select two shifts!");
             return;
         }
-        const res = await fetch(
-            `http://localhost:3333/isShiftsOverlap/[${shiftIds}]`,
-        );
-        const data: IShiftsOverlapVIew = await res.json();
+        const res = await api.get(`isShiftsOverlap/[${shiftIds}]`);
+        const data: IShiftsOverlapVIew = await res.data;
         setOverlap(data);
         setPreLoad(true);
     };

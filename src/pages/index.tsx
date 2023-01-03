@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Overlaps, Shift } from "../components";
 import Button from "../components/Button";
 import { IShiftView } from "../data";
+import { api } from "../lib/axios";
 
 interface HomeProps {
     data: IShiftView[];
@@ -28,9 +29,6 @@ export default function Home({ data }: HomeProps) {
 
         setSelectedShiftsId([...selectedShiftId, shift.shift_id]);
         updateShift(shift);
-
-        console.log(selectedShiftId);
-        <div>Tste</div>;
     };
 
     const updateShift = (shiftToUpdate: IShiftView) => {
@@ -70,24 +68,18 @@ export default function Home({ data }: HomeProps) {
             <div className="grid grid-cols-3 gap-20 pt-10">
                 <Button
                     title="Query 4"
-                    url="http://localhost:3333/remainingSpotsByFacilityByJobType"
+                    route="/remainingSpotsByFacilityByJobType"
                 />
-                <Button
-                    title="Query 5"
-                    url="http://localhost:3333/existentJobsByNurse"
-                />
-                <Button
-                    title="Query 6"
-                    url="http://localhost:3333/nurseCoWorkers"
-                />
+                <Button title="Query 5" route="/existentJobsByNurse" />
+                <Button title="Query 6" route="/nurseCoWorkers" />
             </div>
         </div>
     );
 }
 
 export async function getServerSideProps() {
-    const res = await fetch(`http://localhost:3333/shifts`);
-    const data: IShiftView[] = await res.json();
+    const res = await api.get("/shifts");
+    const data: IShiftView[] = await res.data;
 
     return { props: { data } };
 }
