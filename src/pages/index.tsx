@@ -72,8 +72,14 @@ export default function Home({ data }: HomeProps) {
                     title="Query 4"
                     url="http://localhost:3333/remainingSpotsByFacilityByJobType"
                 />
-                <Button title="Query 5" url="http://localhost:3333/shifts" />
-                <Button title="Query 6" url="http://localhost:3333/shifts" />
+                <Button
+                    title="Query 5"
+                    url="http://localhost:3333/existentJobsByNurse"
+                />
+                <Button
+                    title="Query 6"
+                    url="http://localhost:3333/nurseCoWorkers"
+                />
             </div>
         </div>
     );
